@@ -29,4 +29,40 @@
 * 不同的客户端语言可以根据这个协议生成可执行的接口和数据定义
 * todo:服务端
 
+## 研究的预期目标与意义
+自动化同步数据结构定义
+> 后端能根据数据库ddl自动化生成部分Swagger
+> 前端(web, IOS, Android, 微信小程序等)能100%生成Service层可执行代码
+
+![](intro/auto_generate.png)
+   
+## 本文的工作内容与目的
+基于OpenAPI(Swagger)协议为中心, 研究如何生成Swagger, 如何使用Swagger生成不同客户端的可执行代码
+范围:
+* 数据库基于MySQL
+* 后端语言包括常用的Java, PHP, Go, Python等
+* 客户端包括常用的Javascript, Typescript, Java(Android), Object-C(IOS), 微信小程序, Taro
+
+## 目标成果
+1. 研究结果文档:本文
+2. 相关程序工具
+3. 解决方案的具体工程化详细步骤
+
 ## 100%完备性
+一个订单的总金额 = 商品单价 * 数量
+总金额是100%依赖商品单价与数量这两个值
+
+![](intro/order_data_dependence.png)
+
+
+
+## 如何参与贡献
+任何人都可以参与, 成果开源
+不限于以下工作:
+* 补充说明完善文档
+* 研究后端的某个语言如何生成Swagger
+* 研究前端的某个技术栈如何生成Service代码
+
+## 资料
+流程图在线地址:
+https://docs.qq.com/slide/DUW1JVlN1RkVsRXNM
