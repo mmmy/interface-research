@@ -1,24 +1,30 @@
 package com.example.swagger.config;
 
 import com.example.swagger.domain.SwaggerProperties;
+import com.fasterxml.classmate.TypeResolver;
+import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.WildcardType;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
 /**
  * Swagger基础配置
- * Created by macro on 2020/7/16.
  */
 public abstract class BaseSwaggerConfig {
-
     @Bean
     public Docket createRestApi() {
         SwaggerProperties swaggerProperties = swaggerProperties();
@@ -27,7 +33,9 @@ public abstract class BaseSwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getApiBasePackage()))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                // 去掉泛型<>: 如CommonResult<UmsAdmin> -> CommonResultOfUmsAdmin
+                .forCodeGeneration(true);
         if (swaggerProperties.isEnableSecurity()) {
             docket.securitySchemes(securitySchemes()).securityContexts(securityContexts());
         }
