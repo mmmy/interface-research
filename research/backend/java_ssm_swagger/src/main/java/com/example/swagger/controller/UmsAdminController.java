@@ -2,12 +2,11 @@ package com.example.swagger.controller;
 
 import com.example.swagger.common.api.CommonResult;
 import com.example.swagger.dto.LoginResponse;
+import com.example.swagger.dto.TokenType;
 import com.example.swagger.dto.UmsAdminLoginParam;
 import com.example.swagger.dto.UmsAdminParam;
 import com.example.swagger.mbg.model.UmsAdmin;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -50,14 +49,15 @@ public class UmsAdminController {
     @ApiOperation(value = "登录以后返回token")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult<Map<WeekDay, String>> login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
+    public CommonResult<LoginResponse> login(@Validated @RequestBody UmsAdminLoginParam umsAdminLoginParam) {
         String token = "";//;adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
         if (token == null) {
             return CommonResult.validateFailed("用户名或密码错误");
         }
-        Map<WeekDay, String> tokenMap = new HashMap<>();
-        tokenMap.put(WeekDay.token, token);
-        tokenMap.put(WeekDay.tokenHead, "todo: tokenHead");
-        return CommonResult.success(tokenMap);
+        LoginResponse result = new LoginResponse();
+        result.setToken(token);
+        result.setTokenHead("todo: tokenHead");
+        result.setTokenType(TokenType.type1);
+        return CommonResult.success(result);
     }
 }
