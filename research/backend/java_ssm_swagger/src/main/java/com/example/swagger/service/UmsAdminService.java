@@ -1,5 +1,6 @@
 package com.example.swagger.service;
 
+import com.example.swagger.dto.UmsAdminDetailData;
 import com.example.swagger.mbg.model.UmsAdmin;
 
 /**
@@ -7,4 +8,5 @@ import com.example.swagger.mbg.model.UmsAdmin;
  */
 public interface UmsAdminService {
     UmsAdmin getAdminByUsername(String username);
+    UmsAdminDetailData getAdminDetailData(String username);
 }
