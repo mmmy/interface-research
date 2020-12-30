@@ -5,5 +5,9 @@ withInterfaces: false
 withoutRuntimeChecks: true
 supportsES6: true
 nullSafeAdditionalProps: true
-apiPackage: "apippp"
-modelPackage: "modelPPPP"
+#apiPackage: "apippp"
+#modelPackage: "modelPPPP"
+#files:
+#  api-all-1.mustache:
+#    templateType: API
+#    destinationFilename: .ts
