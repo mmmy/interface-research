@@ -4,10 +4,13 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class UmsAdminRoleRelation implements Serializable {
+    @ApiModelProperty(required = true)
     private Long id;
 
+    @ApiModelProperty(required = true)
     private Long adminId;
 
+    @ApiModelProperty(required = true)
     private Long roleId;
 
     private static final long serialVersionUID = 1L;

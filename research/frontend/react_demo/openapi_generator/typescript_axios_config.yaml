@@ -1,0 +1,9 @@
+templateDir: my_custom_templates
+snapshot : false
+withSeparateModelsAndApi: false
+withInterfaces: false
+withoutRuntimeChecks: true
+supportsES6: true
+nullSafeAdditionalProps: true
+apiPackage: "apippp"
+modelPackage: "modelPPPP"

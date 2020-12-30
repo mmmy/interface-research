@@ -37,7 +37,9 @@ public class CommentGenerator extends DefaultCommentGenerator {
             if (remarks.contains("\"")) {
                 remarks = remarks.replace("\"", "'");
             }
-            field.addJavaDocLine("@ApiModelProperty(value=\"" + remarks + "\")");
+            field.addJavaDocLine("@ApiModelProperty(value=\"" + remarks + "\"" + "," + "required = true" + ")");
+        } else {
+            field.addJavaDocLine("@ApiModelProperty(required = true)");
         }
     }
 

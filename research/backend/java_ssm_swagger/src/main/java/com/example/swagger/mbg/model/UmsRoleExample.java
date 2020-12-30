@@ -1,5 +1,6 @@
 package com.example.swagger.mbg.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

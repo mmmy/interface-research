@@ -5,33 +5,34 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class UmsPermission implements Serializable {
+    @ApiModelProperty(required = true)
     private Long id;
 
-    @ApiModelProperty(value = "父级权限id")
+    @ApiModelProperty(value="父级权限id",required = true)
     private Long pid;
 
-    @ApiModelProperty(value = "名称")
+    @ApiModelProperty(value="名称",required = true)
     private String name;
 
-    @ApiModelProperty(value = "权限值")
+    @ApiModelProperty(value="权限值",required = true)
     private String value;
 
-    @ApiModelProperty(value = "图标")
+    @ApiModelProperty(value="图标",required = true)
     private String icon;
 
-    @ApiModelProperty(value = "权限类型：0->目录；1->菜单；2->按钮（接口绑定权限）")
+    @ApiModelProperty(value="权限类型：0->目录；1->菜单；2->按钮（接口绑定权限）",required = true)
     private Integer type;
 
-    @ApiModelProperty(value = "前端资源路径")
+    @ApiModelProperty(value="前端资源路径",required = true)
     private String uri;
 
-    @ApiModelProperty(value = "启用状态；0->禁用；1->启用")
+    @ApiModelProperty(value="启用状态；0->禁用；1->启用",required = true)
     private Integer status;
 
-    @ApiModelProperty(value = "创建时间")
+    @ApiModelProperty(value="创建时间",required = true)
     private Date createTime;
 
-    @ApiModelProperty(value = "排序")
+    @ApiModelProperty(value="排序",required = true)
     private Integer sort;
 
     private static final long serialVersionUID = 1L;

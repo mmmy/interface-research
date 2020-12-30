@@ -2,6 +2,7 @@ package com.example.swagger.mbg.mapper;
 
 import com.example.swagger.mbg.model.UmsRole;
 import com.example.swagger.mbg.model.UmsRoleExample;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

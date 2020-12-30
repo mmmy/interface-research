@@ -5,17 +5,22 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class UmsAdminLoginLog implements Serializable {
+    @ApiModelProperty(required = true)
     private Long id;
 
+    @ApiModelProperty(required = true)
     private Long adminId;
 
+    @ApiModelProperty(required = true)
     private Date createTime;
 
+    @ApiModelProperty(required = true)
     private String ip;
 
+    @ApiModelProperty(required = true)
     private String address;
 
-    @ApiModelProperty(value = "浏览器登录类型")
+    @ApiModelProperty(value="浏览器登录类型",required = true)
     private String userAgent;
 
     private static final long serialVersionUID = 1L;

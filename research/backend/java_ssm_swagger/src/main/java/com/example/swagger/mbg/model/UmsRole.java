@@ -5,23 +5,25 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class UmsRole implements Serializable {
+    @ApiModelProperty(required = true)
     private Long id;
 
-    @ApiModelProperty(value = "名称")
+    @ApiModelProperty(value="名称",required = true)
     private String name;
 
-    @ApiModelProperty(value = "描述")
+    @ApiModelProperty(value="描述",required = true)
     private String description;
 
-    @ApiModelProperty(value = "后台用户数量")
+    @ApiModelProperty(value="后台用户数量",required = true)
     private Integer adminCount;
 
-    @ApiModelProperty(value = "创建时间")
+    @ApiModelProperty(value="创建时间",required = true)
     private Date createTime;
 
-    @ApiModelProperty(value = "启用状态：0->禁用；1->启用")
+    @ApiModelProperty(value="启用状态：0->禁用；1->启用",required = true)
     private Integer status;
 
+    @ApiModelProperty(required = true)
     private Integer sort;
 
     private static final long serialVersionUID = 1L;
