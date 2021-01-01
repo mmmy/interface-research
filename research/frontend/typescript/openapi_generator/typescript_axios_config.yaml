@@ -1,0 +1,12 @@
+templateDir: my_custom_templates
+additionalProperties:
+  withInterfaces: true
+  snapshot : false
+  withSeparateModelsAndApi: true
+#  withoutRuntimeChecks: true
+  supportsES6: true
+  nullSafeAdditionalProps: true
+#apiPackage: "apippp"
+#modelPackage: "modelPPPP"
+files:
+  README.md: {}

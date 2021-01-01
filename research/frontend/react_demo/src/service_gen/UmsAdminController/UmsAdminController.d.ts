@@ -58,25 +58,25 @@ declare namespace UmsAdminController {
 
   export type UmsAdmin = {
     /** 创建时间 */
-    'createTime' ? : string
+    'createTime': string
     /** 邮箱 */
-    'email' ? : string
+    'email': string
     /** 头像 */
-    'icon' ? : string
+    'icon': string
 
-    'id' ? : number
+    'id': number
     /** 最后登录时间 */
-    'loginTime' ? : string
+    'loginTime': string
     /** 昵称 */
-    'nickName' ? : string
+    'nickName': string
     /** 备注信息 */
-    'note' ? : string
+    'note': string
 
-    'password' ? : string
+    'password': string
     /** 帐号启用状态：0->禁用；1->启用 */
-    'status' ? : number
+    'status': number
 
-    'username' ? : string
+    'username': string
   }
 
   export type CommonResultOfUmsAdminDetailData = {
@@ -90,29 +90,29 @@ declare namespace UmsAdminController {
 
   export type UmsAdminDetailData = {
     /** 创建时间 */
-    'createTime' ? : string
+    'createTime': string
     /** 邮箱 */
-    'email' ? : string
+    'email': string
     /** 头像 */
-    'icon' ? : string
+    'icon': string
 
-    'id' ? : number
+    'id': number
     /** 登录历史记录列表 */
     'loginLogList' ? : Array < UmsAdminLoginLog >
       /** 最后登录时间 */
-      'loginTime' ? : string
+      'loginTime': string
     /** 昵称 */
-    'nickName' ? : string
+    'nickName': string
     /** 备注信息 */
-    'note' ? : string
+    'note': string
 
-    'password' ? : string
+    'password': string
     /** 角色列表 */
     'roleList' ? : Array < UmsRole >
       /** 帐号启用状态：0->禁用；1->启用 */
-      'status' ? : number
+      'status': number
 
-    'username' ? : string
+    'username': string
   }
 
 }
