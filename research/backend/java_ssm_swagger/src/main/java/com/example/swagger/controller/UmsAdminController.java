@@ -13,11 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@ApiModel
-enum WeekDay {
-    token, tokenHead
-}
-
 @Controller
 @RequestMapping("/admin")
 @Api(tags = "UmsAdminController", value = "后台用户管理")

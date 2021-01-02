@@ -1,0 +1,17 @@
+{
+  "name": "typescript_axios_client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate-api": "openapi-generator-cli -c openapi_generator/typescript_axios_config.yaml",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.1.16",
+    "axios": "^0.21.1"
+  }
+}

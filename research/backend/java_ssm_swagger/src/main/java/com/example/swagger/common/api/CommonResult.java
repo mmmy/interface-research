@@ -1,20 +1,19 @@
 package com.example.swagger.common.api;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 通用返回对象
  */
 public class CommonResult<T> {
-    /**
-     * 状态码
-     */
+
+    @ApiModelProperty(value = "状态码", required = true)
     private long code;
-    /**
-     * 提示信息
-     */
+
+    @ApiModelProperty(value = "提示信息, 默认为空", required = true)
     private String message;
-    /**
-     * 数据封装
-     */
+
+    @ApiModelProperty(value = "数据, 注意一般只有code=200的情况下才有该数据", required = true)
     private T data;
 
     protected CommonResult() {

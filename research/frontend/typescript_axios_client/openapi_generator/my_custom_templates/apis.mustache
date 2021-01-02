@@ -1,0 +1,69 @@
+/* tslint:disable */
+/* eslint-disable */
+{{>licenseInfo}}
+
+import axios from '../request'
+
+{{#imports.0}}
+import {
+    {{#imports}}
+    {{className}},
+    {{/imports}}
+} from '../models';
+{{/imports.0}}
+
+{{#operations}}
+{{#operation}}
+{{#allParams.0}}
+{{!只输出query param为interface}}
+{{#allParams.0.isQueryParam}}
+export interface {{#prefixParameterInterfaces}}{{classname}}{{/prefixParameterInterfaces}}{{operationIdCamelCase}}Request {
+{{#allParams}}
+  {{paramName}}{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}};
+{{/allParams}}
+}
+
+{{/allParams.0.isQueryParam}}
+{{/allParams.0}}
+{{/operation}}
+{{/operations}}
+
+{{#operations}}
+{{#operation}}
+{{!接口注释}}
+/**
+ {{#summary}}
+ * {{&summary}}
+ {{/summary}}
+ */
+export async function {{nickname}}(
+{{!query参数}}
+{{#allParams.0.isQueryParam}}
+  params: {{#prefixParameterInterfaces}}{{classname}}{{/prefixParameterInterfaces}}{{operationIdCamelCase}}Request
+{{/allParams.0.isQueryParam}}
+{{!path参数}}
+{{#allParams.0.isPathParam}}
+  {{#allParams}}
+  /** {{description}} */
+  {{paramName}}{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}{{^-last}},{{/-last}}
+  {{/allParams}}
+{{/allParams.0.isPathParam}}
+{{!body参数}}
+{{#allParams.0.isBodyParam}}
+  bodyData{{#allParams.0}}{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}{{/allParams.0}}
+{{/allParams.0.isBodyParam}}
+): Promise<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}> {
+  return axios({
+    url: `{{{path}}}`{{#pathParams}}.replace(`{${"{{baseName}}"}}`, encodeURIComponent(String({{paramName}}))){{/pathParams}},
+    method: '{{httpMethod}}',
+    {{#hasQueryParams}}
+    params,
+    {{/hasQueryParams}}
+    {{#hasBodyParam}}
+    data: bodyData,
+    {{/hasBodyParam}}
+  })
+}
+
+{{/operation}}
+{{/operations}}
