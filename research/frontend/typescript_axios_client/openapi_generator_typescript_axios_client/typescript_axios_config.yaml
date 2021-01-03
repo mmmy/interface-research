@@ -1,0 +1,23 @@
+generatorName: typescript-fetch
+# 输出路径
+outputDir: ../src/service_api
+# swagger路径, 可以使用url, 比如 http://localhost:8080/v2/api-docs
+inputSpec: ../../../swagger/admin_example.json
+#inputSpec: http://localhost:8080/v2/api-docs
+globalProperties:
+  # 输出debug, 一般用于调试修改模板
+  debugOperations: true
+# 自定义模板
+templateDir: my_custom_templates
+additionalProperties:
+  withInterfaces: true
+  snapshot : false
+  withSeparateModelsAndApi: true
+#  withoutRuntimeChecks: true
+  supportsES6: true
+  nullSafeAdditionalProps: true
+#apiPackage: "api"
+#modelPackage: "models"
+files:
+  README.md: {} #直接复制
+  request.ts: {} #直接复制

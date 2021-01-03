@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate-api": "openapi-generator-cli -c openapi_generator/typescript_axios_config.yaml",
+    "generate-api": "cd openapi_generator_typescript_axios_client && ../node_modules/.bin/openapi-generator-cli generate -c typescript_axios_config.yaml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
